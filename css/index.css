@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'FonteDescricao';
-  src: url('/css/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'FonteTitulo';
-  src: url('/css/fonts/Roca\ Bold.ttf') format('truetype');
+  src: url('/fonts/Roca\ Bold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -397,3 +397,4 @@ nav {
  
  
  
+
