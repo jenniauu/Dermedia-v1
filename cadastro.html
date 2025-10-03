@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/css.css">
+    <link rel="icon" href="imagens/favicon.png" type="image/png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    
+
+    <!-- Remova o link para o favicon que não existe ou corrija o caminho -->
+    
+    <!-- Firebase SDK - ORDEM CORRETA: app -> auth -> firestore -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <!-- Inicialização do Firebase -->
+    <script>
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyA0sDKUzReP6QuxXUAo_FQb6i72OoTv_rY",
+            authDomain: "dermedia-67601.firebaseapp.com",
+            projectId: "dermedia-67601",
+            storageBucket: "dermedia-67601.firebasestorage.app",
+            messagingSenderId: "1032000954999",
+            appId: "1:1032000954999:web:7a30d9f6e2641b937edc72"
+        };
+        
+        // Initialize Firebase
+        if (!firebase.apps.length) {
+            firebase.initializeApp(firebaseConfig);
+            console.log("Firebase inicializado com sucesso!");
+        } else {
+            firebase.app(); // Já está inicializado
+        }
+    </script>
+    
+    <!-- Scripts locais -->
+    <script src="js/animacao.js"></script>
+    <script src="js/auth.js" defer></script>
+</head>
+<body>
+    <div class="container"> <!-- Inicio do container -->
+
+        <div class="content first-content"> <!--Começo--> <!-- Primeiro Conteudo-->
+
+            <div class="first-column"> <!-- Começo --> <!-- Primeira Coluna-->
+                <h2 class="title title-primary">BEM-VINDO DE VOLTA!</h2> <!-- h2 titulo principal 1 -->
+                <p class="description description-primary">Se você já tiver uma conta clique no botão abaixo</p>  <!-- Descrição-->
+                <button id="signin" class="btn btn-primary">RETORNAR</button> <!-- Botão que volta para o segundo conteudo (parte de login)-->
+            </div> <!-- Fim --> <!-- Primeira Coluna-->    
+
+            <div class="second-column"> <!--Segunda Coluna-->
+                <h2 class="title title-second">CRIE SUA CONTA</h2> <!-- h2 titulo principal 2 -->
+
+                <div class="social-media"> <!-- Começo --> <!-- Cadastrar com rede social-->
+                    <ul class="list-social-media">
+                        <a id="googleLogin" class="link-social-media" href="#"> <!-- ID para entrar no google-->
+                            <li class="item-social-media">
+                                <i class="fab fa-google-plus-g"></i> <!--Icone do google-->
+                            </li>
+                        </a>
+                    </ul>
+                </div><!-- Fim --> <!-- Logar com rede social-->
+
+                <p class="description description-second">Ou utilize seu email para se registrar:</p><!-- Descrição-->
+                <!--ID para cadastrar-->
+                <form id="registerForm" class="form"> <!-- Começo --> <!-- Formulario de cadastro de conta-->
+                    <label class="label-input" for="regName">
+                        <i class="far fa-user icon-modify"></i>
+                        <input id="regName" type="text" placeholder="Name" required>
+                    </label><!--Nome-->
+                    
+                    <label class="label-input" for="regEmail">
+                        <i class="far fa-envelope icon-modify"></i>
+                        <input id="regEmail" type="email" placeholder="Email" required>
+                    </label><!--Email-->
+                    
+                    <!-- Campo principal de senha -->
+                    <label class="label-input" for="regPassword">
+                        <i class="fas fa-lock icon-modify"></i>
+                        <input id="regPassword" type="password" placeholder="Password" required>
+                        <i class="far fa-regular fa-eye" id="toggleRegPassword"></i>
+                    </label>
+                    
+                    
+                     <!-- área para mensagens de erro -->
+                    <div id="regErrorMessage" class="error-message" style="display: none;"></div>
+                    
+                    <button class="btn btn-second">Cadastrar</button> <!-- Botão que volta cadastra a conta e entra para a página inicial-->       
+                </form><!-- Fim --> <!-- Formulario de cadastro de conta-->
+
+            </div><!-- second column -->
+
+        </div><!--Fim--> <!-- Primeiro Conteudo-->
+
+        <div class="content second-content"><!--Começo--> <!-- Segundo Conteudo-->
+
+            <div class="first-column margin-direito"><!--Começo--> <!-- Primeira Coluna-->
+
+                <h2 class="title title-primary">OLÁ AMIGOS</h2><!-- h2 titulo principal 1 -->
+
+                <p class="description description-primary">Para se cadastrar clique no botão abaixo </p><!-- Descrição-->
+                <button id="signup" class="btn btn-primary">Iniciar</button><!-- Botão que volta para o segundo conteudo (parte de login)-->
+
+            </div><!--Fim--> <!-- Primeira Coluna-->
+
+            <div class="second-column"><!--Começo--> <!-- Segunda Coluna-->
+
+                <h2 class="title title-second">ENTRE EM SUA CONTA</h2> <!-- h2 titulo principal 2 -->
+
+                <div class="social-media"><!-- Começo --> <!-- Logar com rede social-->
+
+                    <ul class="list-social-media">
+                        <a id="googleLoginAlt" class="link-social-media" href="#"><!-- ID para entrar no google-->
+                            <li class="item-social-media">
+                                <i class="fab fa-google-plus-g"></i><!--Google icone-->
+                            </li>
+                        </a>
+                    </ul>
+
+                </div><!-- Fim --> <!-- Logar com rede social-->
+
+                <p class="description description-second">Use seu endereço de email</p><!-- Descrição-->
+
+                <form id="loginForm" class="form"><!-- Começo --> <!-- Formulario de conexção de uma conta antiga-->
+                
+                    <label class="label-input" for="loginEmail">
+                        <i class="far fa-envelope icon-modify"></i>
+                        <input id="loginEmail" type="email" placeholder="Email" required>
+                    </label><!--Email-->
+                
+                    <label class="label-input" for="loginPassword">
+                        <i class="fas fa-lock icon-modify"></i>
+                        <input id="loginPassword" type="password" placeholder="Password" required>
+                        <i class="far fa-regular fa-eye" id="toggleLoginPassword"></i>
+                    </label><!--Senha-->
+                    
+                     <a href="#" id="forgotPassword" class="password">Esqueceu sua senha?</a><!--link esqueceu sua senha-->
+
+                     <div id="loginErrorMessage" class="error-message" style="display: none;"></div>
+
+                    <button class="btn btn-second">Entrar</button><!-- Botão que entra em uma conta já existente e entrando para  página inicial-->  
+
+                </form><!-- Fim --> <!-- Formulario de conexção de uma conta antiga-->
+
+                
+            </div><!--Fim--> <!-- Segunda Coluna-->
+
+        </div><!--Fim--> <!-- Segundo Conteudo-->
+
+    </div>  <!-- Fim do container -->
+    <!-- Modal de Recuperação de Senha -->
+                    <div id="passwordResetModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Recuperar Senha</h2>
+                        <form id="passwordResetForm">
+                            <div class="form-group">
+                                <label for="resetEmail">Digite seu e-mail</label>
+                                <input type="email" id="resetEmail" required>
+                            </div>
+                            <div id="resetErrorMessage" class="error-message"></div>
+                            <button type="submit" class="btn btn-second">Enviar Link</button>
+                        </form>
+                    </div>
+                </div>
+</body>
+</html>

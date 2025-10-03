@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" href="css/css2.css" />
+    <link rel="icon" href="imagens/favicon.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    />
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <!-- Inicialização do Firebase -->
+    <script>
+      // Configuração do Firebase (igual ao seu cadastro.html)
+      const firebaseConfig = {
+        apiKey: "AIzaSyA0sDKUzReP6QuxXUAo_FQb6i72OoTv_rY",
+        authDomain: "dermedia-67601.firebaseapp.com",
+        projectId: "dermedia-67601",
+        storageBucket: "dermedia-67601.firebasestorage.app",
+        messagingSenderId: "1032000954999",
+        appId: "1:1032000954999:web:7a30d9f6e2641b937edc72",
+      };
+
+      // Initialize Firebase
+      if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+        console.log("Firebase inicializado com sucesso!");
+      } else {
+        firebase.app(); // Já está inicializado
+      }
+    </script>
+  </head>
+  <body>
+    <div class="profile-container">
+        <a href="/index.html"><img src="imagens/home.png" alt=""  id="backHome"></a>
+      <div class="profile-header">
+        
+        <div class="profile-picture-container" onclick="document.getElementById('profilePictureInput').click()">
+                
+                <img src="/imagens/change-picture.png" id="edit-icon" alt="Editar Foto">
+                <img src="imagens/filter.jpg" alt="" id="filter">
+                <input type="file" id="profilePictureInput" accept="image/*" style="display: none;" onchange="updateProfilePicture(event)">
+            </div>
+
+        
+        <input
+          type="file"
+          id="profilePictureInput"
+          accept="image/*"
+          style="display: none"
+          onchange="updateProfilePicture(event)"
+        />
+        <h1 id="userName">Carregando...</h1>
+      </div>
+
+      <div class="profile-info">
+        <div class="info-item">
+          <span class="info-label">Nome:</span>
+          <span id="profileName" class="info-value">Carregando...</span>
+        </div>
+
+        <div class="info-item">
+          <span class="info-label">E-mail:</span>
+          <span id="profileEmail" class="info-value">Carregando...</span>
+        </div>
+
+        <div class="info-item">
+          <span class="info-label">Data de criação da conta:</span>
+          <span id="accountCreated" class="info-value">Carregando...</span>
+        </div>
+
+        <div class="info-item">
+          <span class="info-label">Último login:</span>
+          <span id="lastLogin" class="info-value">Carregando...</span>
+        </div>
+      </div>
+
+      <button id="btnLogout" class="btn-logout">Sair</button>
+    </div>
+
+    <script src="/js/perfil.js"></script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dermedia</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="icon" href="imagens/favicon.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+    <script>
+      (function (d) {
+        var s = d.createElement("script");
+        s.setAttribute("data-account", "INSIRA_SEU_CÓDIGO_USERWAY_AQUI"); // exemplo para aplicações maiores
+        s.setAttribute("src", "https://cdn.userway.org/widget.js");
+        (d.body || d.head).appendChild(s);
+      })(document);
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a class="logo" href="index.html">DERMEDIA</a>
+
+        <ul class="nav-list">
+          <li><a href="#">Início</a></li>
+          <li><a href="area_paciente.html">Área do Paciente</a></li>
+          <li><a href="cadastro.html" class="login">Login</a></li>
+          <!-- login agora é um item do menu -->
+        </ul>
+
+        <div class="mobile-menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="first">
+        <div class="left1">
+          <img
+            src="imagens/image1.jpg"
+            alt="Imagem de rostos diversos"
+            class="custom-img"
+          />
+        </div>
+        <div class="right1">
+          <h1 class="titulo">UM NOVO JEITO DE CUIDAR DA SUA PELE!</h1>
+          <p class="descricao">
+            Dermedia é uma plataforma de telemedicina dermatológica que usa IA
+            para cuidar da sua pele. Envie uma foto, receba uma análise da IA e
+            orientações para prosseguir cuidando de si — tudo de forma rápida,
+            confiável e sem sair de casa.
+          </p>
+          <a href="/area_paciente.html"
+            ><button class="CTA">Envie sua foto e descubra</button></a
+          >
+        </div>
+      </section>
+      <section class="divider">
+        <div id="resp1">
+          <div class="topic">
+            <img src="imagens/1.png" alt="" class="dividerimg" />
+            <p>Envie uma foto da sua pele</p>
+          </div>
+          <img src="imagens/5.png" alt="Seta" class="seta" />
+          <div class="topic">
+            <img src="imagens/2.png" alt="" class="dividerimg" />
+            <p>Nossa IA analisa a imagem</p>
+          </div>
+          <img src="imagens/5.png" alt="Seta" class="seta" id="setaresp" />
+        </div>
+        <div id="resp2">
+          <div class="topic">
+            <img src="imagens/3.png" alt="" class="dividerimg" />
+            <p>Receba um diagnóstico do tipo de acne</p>
+          </div>
+          <img src="imagens/5.png" alt="Seta" class="seta" />
+          <div class="topic">
+            <img src="imagens/4.png" alt="" class="dividerimg" />
+            <p>Veja recomendações personalizadas</p>
+          </div>
+        </div>
+      </section>
+      <section class="second">
+        <div class="left2">
+          <h1 class="titulo">COMO NOSSA TECNOLOGIA FUNCIONA?</h1>
+          <p class="descricao">
+            Nossa IA foi treinada por uma banco de imagens para identificar
+            diferentes tipos de acne com precisão, analisando sua foto em poucos
+            segundos.
+          </p>
+        </div>
+        <div class="right2">
+          <img
+            src="imagens/ai_skin.gif"
+            alt="Análise de rostos diferentes"
+            class="custom-img"
+          />
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+
+    <script src="js/mobile-navbar.js"></script>
+  </body>
+</html>

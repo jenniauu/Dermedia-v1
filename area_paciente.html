@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DERMEDIA - Diagnóstico</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a class="logo" href="index.html">DERMEDIA</a>
+        <ul class="nav-list">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="/area_paciente.html">Área do Paciente</a></li>
+          <li><a href="/perfil.html">Login</a></li>
+        </ul>
+        <div class="mobile-menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="sidebar">
+        <div class="sidebar-content">
+          <div class="menu-section">
+            <div class="menu-title">Diagnóstico</div>
+            <div class="menu-item active">
+              <img
+                class="icon-sidebar"
+                src="imagens/diagnostico.png"
+                alt="Diagnóstico"
+              />
+              <span>Obter Novo Diagnóstico</span>
+            </div>
+          </div>
+
+          <div class="menu-section">
+            <div class="menu-title">Histórico</div>
+            <div class="menu-item">
+              <img
+                class="icon-sidebar"
+                src="imagens/historico.png"
+                alt="Histórico"
+              />
+              <span>Meus Diagnósticos</span>
+            </div>
+          </div>
+
+          <div class="menu-section">
+            <div class="menu-title">Geral</div>
+            <div class="menu-item">
+              <img class="icon-sidebar" src="imagens/ajuda.png" alt="Ajuda" />
+              <span >Ajuda & Suporte</span>
+            </div>
+          </div>
+        </div>
+        <div class="toggle-btn" id="toggle-sidebar">
+          <img src="/imagens/sidebar.png" alt="" class="icon-sidebar" />
+        </div>
+      </div>
+
+      <div class="main-content">
+        <div class="page-header">
+          <h1>Resultado do Diagnóstico</h1>
+        </div>
+
+        <div class="diagnostic-result">
+          <div class="result-header">
+            <h2>Análise de Acne</h2>
+            <span class="history-date">Data:</span>
+          </div>
+
+          <div class="result-content">
+            <div class="preview-container" id="previewContainer">
+              <div id="uploadWidget" class="upload-widget">
+                <p>Arraste e solte uma imagem aqui</p>
+                <p>ou</p>
+                <button id="uploadFileBtn">Fazer Upload</button>
+                <button id="openCameraBtn">Abrir Câmera</button>
+              </div>
+            </div>
+
+            <div class="result-analysis">
+              <div class="severity-badge severity-moderate">
+                Nível de Gravidade: <span id="severity-level"></span>
+              </div>
+              <div class="warning-rare">
+                <span id="warning-rare-text"></span>
+              </div>
+
+              <div class="analysis-details">
+                <h4>Detalhes da Análise</h4>
+                <div class="detail-item">
+                  <span>Tipo(s) de lesões</span>
+                  <span id="lesion-type"></span>
+                </div>
+                <div class="detail-item">
+                  <span>Inflamação</span>
+                  <span id="inflammation"></span>
+                </div>
+              </div>
+
+              <div class="recommendations">
+                <h4>Recomendações</h4>
+                <ul id="recommendations-list"></ul>
+              </div>
+              <div class="warning">
+                <span id="warning-text"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal do Histórico -->
+    <div id="historyModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="title">Meus Diagnósticos</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div id="history-list" class="history-list">
+            <!-- Itens do histórico serão inseridos aqui via JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <div id="helpModal" class="modal">
+      <div class="modal-content" style="max-width: 1200px">
+        <div class="modal-header">
+          <h2 class="title">Ajuda e Suporte</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="accordion">
+            <button class="accordion-btn">Como fazer a análise</button>
+            <div class="accordion-content-tutorial">
+              <img src="imagens/tutorial.png" alt="" class="tutorial">
+          </div>
+
+          <div class="accordion">
+            <button class="accordion-btn">
+              A análise do site substitui uma consulta com um dermatologista?
+            </button>
+            <div class="accordion-content">
+              <p>
+                Não, de forma alguma. Nossa ferramenta é um recurso inicial
+                para autoconhecimento e educação sobre a saúde da pele. Ela não
+                é um diagnóstico médico. Apenas um dermatologista qualificado
+                pode realizar um exame clínico completo, fornecer um diagnóstico
+                preciso e prescrever tratamentos específicos e medicamentos.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion-btn">
+             A foto que eu tirar ou enviar fica armazenada no site?
+            </button>
+            <div class="accordion-content">
+              <p>
+               Levamos sua privacidade a sério. As imagens são processadas
+                de forma anônima e não são armazenadas em nossos servidores após
+                a análise, a menos que você opte por salvar seu histórico em uma
+                conta de usuário (se esse for um recurso futuro). Consulte nossa
+                [Política de Privacidade] para mais detalhes.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion-btn">
+             Por que o resultado da análise pode não estar 100% correto?
+            </button>
+            <div class="accordion-content">
+              <p>
+              A precisão da análise depende de vários fatores, como a
+                qualidade da imagem (iluminação, foco), o ângulo e a
+                complexidade da condição da pele. Nossa IA é treinada para ser
+                uma ferramenta de apoio, mas pode não identificar todas as
+                nuances que um profissional identificaria pessoalmente.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion-btn">
+             Que tipos de acne a ferramenta consegue identificar?
+            </button>
+            <div class="accordion-content">
+              <p>
+               O sistema foi desenvolvido para reconhecer os sinais visuais
+                mais comuns da acne, como cravos (comedões abertos), espinhas
+                (comedões fechados e pústulas), e lesões inflamatórias.
+                Condições mais graves, como nódulos e cistos, devem ser sempre
+                avaliadas por um médico.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion-btn">
+             O site recomenda produtos específicos?
+            </button>
+            <div class="accordion-content">
+              <p>
+               Fornecemos orientações gerais sobre princípios ativos e
+                categorias de produtos (como "limpeza suave", "hidratante não
+                comedogênico" ou "protetor solar") que são benéficos para o tipo
+                de condição identificada. Não recomendamos marcas ou produtos
+                específicos, pois a escolha final deve considerar a avaliação de
+                um dermatologista e as particularidades da sua pele.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion-btn">
+              O que devo fazer se o resultado indicar uma condição grave?
+            </button>
+            <div class="accordion-content">
+              <p>
+                Se a análise sugerir uma condição mais severa ou se você
+                estiver em dúvida, recomendamos fortemente que procure
+                imediatamente um dermatologista. Não ignore sinais de inflamação
+                intensa, dor ou infecção.
+              </p>
+            </div>
+          </div>
+
+          <div class="accordion">
+            <button class="accordion-btn">
+              Não consigo tirar uma foto boa. O que fazer?
+            </button>
+            <div class="accordion-content">
+              <p>R:</p>
+              <ul>
+                <li>
+                  Iluminação é a chave: Use a luz natural indireta (perto de uma
+                  janela, mas sem sol direto) ou uma luz artificial suave.
+                </li>
+                <li>
+                  Foque na área: Toque na tela do celular sobre a região da pele
+                  que deseja fotografar para ajustar o foco.
+                </li>
+                <li>
+                  Mantenha a câmera parada: Apoie o braço em uma superfície
+                  firme para evitar fotos tremidas.
+                </li>
+                <li>
+                  Evite filtros: Não use filtros de beleza ou qualquer efeito
+                  que altere a realidade da sua pele.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
+  </body>
+</html>

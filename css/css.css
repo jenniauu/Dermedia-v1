@@ -1,0 +1,1072 @@
+/* style.css */
+/**
+ * Estilos para Página de Login/Cadastro com Transição Animada
+ * 
+ * Este arquivo contém:
+ * - Definições de fontes customizadas
+ * - Estilos gerais e reset
+ * - Estilos específicos para formulários
+ * - Animações para transição entre telas
+ * - Media queries para responsividade
+ * 
+ * @version 1.0
+ * @author [Seu Nome]
+ */
+
+/* ============ FONTES CUSTOMIZADAS ============ */
+/**
+ * @font1 - Usada para títulos
+ * @font2 - Usada para descrições e textos menores
+ */
+@font-face {
+  font-family: "font1";
+  src: url(fonts/Roca\ Bold.ttf);
+} /* Titulo */
+
+@font-face {
+  font-family: "font2";
+  src: url(fonts/Montserrat-VariableFont_wght.ttf);
+} /*descrição e subtitulos*/
+
+/* ============ RESET E ESTILOS GLOBAIS ============ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/**
+ * Estilo base do body
+ * Cor de fundo azul claro
+ */
+body {
+  background-color: #4a3124;
+}
+
+/* ============ CONTAINER PRINCIPAL ============ */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/**
+ * Card principal que contém ambos formulários
+ * Possui:
+ * - Fundo bege
+ * - Borda arredondada
+ * - Divisão colorida no lado esquerdo (via pseudo-elemento)
+ */
+.content {
+  position: relative; /* Garante que os filhos absolutos se refiram a este container */
+  background-color: #e0c8b1;
+  border-radius: 15px;
+  width: 960px;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/**
+ * Divisão colorida azul no lado esquerdo
+ * Será animada durante a transição entre formulários
+ */
+.content::before {
+  content: "";
+  position: absolute;
+  background-color: #103a71;
+  width: 50%;
+  height: 100%;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  left: 0;
+  pointer-events: none;
+}
+
+/* ============ ESTILOS DE TEXTO ============ */
+.title {
+  font-family: "font1";
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.title-primary {
+  color: #e0c8b1; /* Texto claro para fundo escuro */
+}
+
+.title-second {
+  color: #4a3124; /* Texto escuro para fundo claro */
+}
+
+.description {
+  font-family: "font2";
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 30px;
+}
+
+.description-primary {
+  color: #e0c8b1;
+}
+
+.description-second {
+  color: #4a3124;
+}
+
+/* ============ BOTÕES ============ */
+.btn {
+  border-radius: 15px;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: "font2";
+  font-size: 15px;
+  padding: 10px 48px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 150px;
+  align-self: center;
+  border: none;
+  margin-top: 1rem;
+}
+
+/**
+ * Botão primário - usado no fundo azul
+ * Estilo outline com transição suave
+ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  padding: 2rem;
+  background-color: transparent;
+  border: 1px solid #e0c8b1;
+  color: #e0c8b1;
+  transition: background-color 0.5s;
+}
+
+.btn-primary:hover {
+  background-color: #e0c8b1;
+  color: #103a71;
+}
+
+/**
+ * Botão secundário - usado no fundo bege
+ * Estilo sólido com transição suave
+ */
+.btn-second {
+    display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  padding: 2rem;
+  background-color: #e0c8b1;
+  border: 1px solid #4a3124;
+  transition: background-color 0.5s;
+  color: #4a3124;
+}
+
+.btn-second:hover {
+    
+  background-color: #4a3124;
+  border: 1px solid #e0c8b1;
+  color: #e0c8b1;
+}
+
+/* ============ LAYOUT DOS FORMULÁRIOS ============ */
+.first-content {
+  display: flex;
+}
+
+.first-content .second-column {
+  z-index: 11;
+}
+
+.first-column {
+  text-align: center;
+  width: 40%;
+  z-index: 10;
+}
+
+.second-column {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ============ REDES SOCIAIS ============ */
+.social-media {
+  margin: 1rem 0;
+}
+
+.link-social-media:not(:first-child) {
+  margin-left: 10px;
+}
+
+.link-social-media .item-social-media {
+  transition: background-color 0.5s;
+}
+
+.link-social-media:hover .item-social-media {
+  background-color: #4a3124;
+  color: #e0c8b1;
+  border-color: #4a3124;
+}
+
+.list-social-media {
+  display: flex;
+  list-style-type: none;
+}
+
+.item-social-media {
+  color: #4a3124;
+  border: 1px solid #4a3124;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+}
+
+/* ============ FORMULÁRIOS ============ */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+}
+
+.form input {
+  height: 45px;
+  width: 80%;
+  border: none;
+  outline: none;
+  background-color: #fff6eb;
+  border-radius: 15px;
+  font-family: "font2";
+  font-size: 20px;
+  margin: 0 auto;
+}
+
+/* Estilos específicos para o formulário de login */
+.form-group {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.label-input {
+  width: 80%;
+  max-width: 350px;
+  margin: 8px auto;
+}
+
+.input-hint {
+  font-family: "font2";
+  font-size: 0.8rem;
+  color: #5a5a5a;
+  text-align: left;
+  width: 80%;
+  margin: 0.25rem auto 0;
+  padding: 0 1rem;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.btn.btn-second {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 2rem;
+}
+
+.btn-icon {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.btn:hover .btn-icon {
+  transform: translateX(3px);
+}
+
+/**
+ * Correção para autopreenchimento do navegador
+ * Mantém o estilo consistente quando campos são preenchidos automaticamente
+ */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #ecf0f1 inset !important;
+  -webkit-text-fill-color: #000 !important;
+}
+
+.label-input {
+  background-color: #fff6eb;
+  display: flex;
+  align-items: center;
+  margin: 8px auto; /* Unifique as margens */
+  border-radius: 15px;
+  width: 80%;
+  max-width: 350px;
+  position: relative; /* Mantenha isso para o posicionamento absoluto dos ícones */
+  padding: 0 10px; /* Adicione padding interno */
+}
+
+.label-input input {
+  padding-right: 45px; /* Aumente para dar mais espaço */
+  padding-left: 35px; /* Espaço para o ícone esquerdo */
+  width: 100%; /* Garanta que ocupe todo o espaço disponível */
+  border: none;
+  background: transparent; /* Remova o fundo duplicado */
+}
+
+.label-input:hover {
+  border: #4a3124 solid 2.5px;
+}
+
+.icon-modify {
+  position: absolute;
+  left: 15px;
+  color: #4a3124;
+  font-size: 1rem;
+}
+
+/* ============ SEGUNDO FORMULÁRIO (CADASTRO) ============ */
+.second-content {
+  position: absolute;
+  display: flex;
+}
+
+.second-content .first-column {
+  order: 2;
+  z-index: -1;
+}
+
+.second-content .second-column {
+  order: 1;
+  z-index: -1;
+}
+
+.password {
+  color: #34495e;
+  font-size: 20px;
+  margin: 15px 0;
+  text-align: center;
+  font-family: "font2";
+  margin: 1rem 0;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.password:hover {
+  transform: scale(1.05); /* Efeito de hover suave */
+}
+
+.password::first-letter {
+  text-transform: capitalize;
+}
+
+/* ===========Animação olho ===========*/
+.eye-icon {
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  color: #4a3124;
+  transition: all 0.3s ease;
+  padding: 0 5px;
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============ RECUPERAR SENHA ============ */
+/* Estilos para mensagens de erro */
+.error-message {
+  color: #d32f2f;
+  font-family: "font2";
+  font-size: 14px;
+  margin: 10px auto;
+  padding: 12px;
+  background-color: #ffebee;
+  border-radius: 8px;
+  border-left: 4px solid #d32f2f;
+  display: none;
+  width: 80%;
+  max-width: 350px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Adicione esta classe via JavaScript quando houver erro */
+.show-error {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos para o modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: #e0c8b1;
+  margin: 15% auto;
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.modal h2 {
+  color: #4a3124;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: #4a3124;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close:hover {
+  color: #103a71;
+}
+
+#passwordResetForm input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #4a3124;
+  border-radius: 8px;
+  background-color: #fff6eb;
+}
+
+#passwordResetForm button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+}
+/* Melhorias na responsividade */
+@media screen and (max-width: 425px) {
+  .label-input {
+    width: 95%;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px 24px;
+  }
+
+  .modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+}
+
+/* Botão centralizado */
+.first-column .btn {
+  margin-top: 10px;
+}
+
+/* ============ ANIMAÇÕES E TRANSIÇÕES ============ */
+/**
+ * Estilos aplicados quando o formulário de login está ativo
+ * Controla:
+ * - Posição da divisão colorida (direita)
+ * - Ordem z-index dos elementos
+ * - Animações relacionadas
+ */
+.sign-in-js .first-content .first-column {
+  z-index: -1;
+}
+
+.sign-in-js .second-content .second-column {
+  z-index: 11;
+}
+
+.sign-in-js .second-content .first-column {
+  z-index: 13;
+}
+
+.sign-in-js .content::before {
+  left: 50%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  animation: slidein 1.3s;
+  z-index: 12;
+}
+
+/**
+ * Estilos aplicados quando o formulário de cadastro está ativo
+ */
+.sign-up-js .content::before {
+  animation: slideout 1.3s;
+  z-index: 12;
+}
+
+.sign-up-js .second-content .first-column,
+.sign-up-js .second-content .second-column {
+  z-index: -1;
+}
+
+.sign-up-js .first-content .second-column {
+  z-index: 11;
+}
+
+.sign-up-js .first-content .first-column {
+  z-index: 13;
+}
+
+/* DESLOCAMENTO CONTEÚDO ATRÁS DO CONTENT:BEFORE*/
+.sign-in-js .first-content .second-column {
+  z-index: -1;
+  position: relative;
+  animation: deslocamentoEsq 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
+}
+
+.sign-up-js .second-content .second-column {
+  position: relative;
+  z-index: -1;
+  animation: deslocamentoDir 1.3s; /*MODIFIQUEI DE 3s PARA 1.3s*/
+}
+
+/* Garante que as colunas ficarão invisíveis durante a transição */
+.sign-in-js .first-content .first-column,
+.sign-up-js .second-content .first-column {
+  animation: hideContent 0.3s forwards;
+}
+
+@keyframes hideContent {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Restaura a visibilidade quando a transição termina */
+.sign-up-js .first-content .first-column,
+.sign-in-js .second-content .first-column {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s 0.4s, visibility 0.3s 0.4s;
+}
+
+/* Ajuste nas animações existentes */
+.sign-in-js .first-content .second-column,
+.sign-up-js .second-content .second-column {
+  animation: fadeOut 0.3s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+/*ANIMAÇÃOO CSS PARA O CONTEÚDO*/
+
+@keyframes deslocamentoEsq {
+  from {
+    left: 0;
+    opacity: 1;
+    z-index: 12;
+  }
+
+  25% {
+    left: -80px;
+    opacity: 0.5;
+    /* z-index: 12; NÃO HÁ NECESSIDADE */
+  }
+
+  50% {
+    left: -100px;
+    opacity: 0.2;
+    /* z-index: 12; NÃO HÁ NECESSIDADE */
+  }
+
+  to {
+    left: -60px;
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
+@keyframes deslocamentoDir {
+  from {
+    left: 0;
+    z-index: 12;
+  }
+
+  25% {
+    left: 80px;
+    /* z-index: 12;  NÃO HÁ NECESSIDADE*/
+  }
+
+  50% {
+    left: 100px;
+    /* z-index: 12; NÃO HÁ NECESSIDADE*/
+    /* background-color: yellow;  Exemplo que dei no vídeo*/
+  }
+
+  to {
+    left: -60px;
+    z-index: -1;
+  }
+}
+
+/* ANIMAÇÕES PARA DESKTOP */
+@keyframes slidein {
+  from {
+    left: 0;
+    width: 50%;
+  }
+  25% {
+    left: 5%;
+    width: 50%;
+  }
+  50% {
+    left: 25%;
+    width: 60%;
+  }
+  75% {
+    left: 45%;
+    width: 50%;
+  }
+  to {
+    left: 50%;
+    width: 50%;
+  }
+}
+
+@keyframes slideout {
+  from {
+    left: 50%;
+    width: 50%;
+  }
+  25% {
+    left: 45%;
+    width: 50%;
+  }
+  50% {
+    left: 25%;
+    width: 60%;
+  }
+  75% {
+    left: 5%;
+    width: 50%;
+  }
+  to {
+    left: 0;
+    width: 50%;
+  }
+}
+
+/*VERSÃO MOBILE*/
+@media screen and (max-width: 1040px) {
+  .content {
+    width: auto;
+    height: 100vh;
+  }
+
+  .content::before {
+    width: 100%;
+    height: 40%;
+    top: 0;
+    border-radius: 0;
+  }
+  .first-content,
+  .second-content {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .first-column,
+  .second-column {
+    width: 100%;
+    padding: 20px 15px;
+  }
+
+  .sign-in-js .content::before {
+    top: 60%;
+    left: 0;
+    border-radius: 0;
+  }
+
+  .form {
+    width: 90%;
+  }
+
+  .label-input {
+    width: 95%; /* MAIS LARGURA EM MOBILE */
+    max-width: none; /* REMOVER LIMITE */
+  }
+
+  /* ANIMAÇÃO MOBILE CSS*/
+
+  @keyframes deslocamentoEsq {
+    from {
+      top: 0;
+      opacity: 1;
+      z-index: 12;
+    }
+
+    25% {
+      top: -80px;
+      opacity: 0.5;
+      /* z-index: 12; NÃO HÁ NECESSIDADE */
+    }
+
+    50% {
+      top: -100px;
+      opacity: 0.2;
+      /* z-index: 12; NÃO HÁ NECESSIDADE */
+    }
+
+    to {
+      top: -60px;
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+
+  @keyframes deslocamentoDir {
+    from {
+      top: 0;
+      z-index: 12;
+    }
+
+    25% {
+      top: 80px;
+      /* z-index: 12;  NÃO HÁ NECESSIDADE*/
+    }
+
+    50% {
+      top: 100px;
+      /* z-index: 12; NÃO HÁ NECESSIDADE*/
+      /* background-color: yellow;  Exemplo que dei no vídeo*/
+    }
+
+    to {
+      top: -60px;
+      z-index: -1;
+    }
+  }
+
+  @keyframes slidein {
+    from {
+      top: 0;
+      height: 40%;
+    }
+
+    25% {
+      top: 5%;
+      height: 50%;
+    }
+
+    50% {
+      top: 25%;
+      height: 60%;
+    }
+
+    75% {
+      top: 45%;
+      height: 50%;
+    }
+
+    to {
+      top: 60%;
+      height: 40%;
+    }
+  }
+
+  @keyframes slideout {
+    from {
+      top: 60%;
+      height: 40%;
+    }
+
+    25% {
+      top: 45%;
+      height: 50%;
+    }
+
+    50% {
+      top: 25%;
+      height: 60%;
+    }
+
+    75% {
+      top: 5%;
+      height: 50%;
+    }
+
+    to {
+      top: 0;
+      height: 40%;
+    }
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .form {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .form {
+    width: 100%;
+  }
+}
+
+/* ============ CENTRALIZAÇÃO E TEXTO MAIOR ============ */
+.first-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 40px;
+  text-align: center;
+}
+
+.second-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 40px;
+}
+
+.first-content,
+.second-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Aumentar tamanho das letras */
+.title {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-size: 22px;
+  line-height: 35px;
+}
+
+.first-column .btn {
+  margin: 20px auto;
+  display: block;
+  font-size: 18px;
+  padding: 12px 50px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 25px 0;
+}
+
+.form-group:first-child {
+  text-align: center;
+  width: 100%;
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+/* Aumentar texto do botão CADASTRAR */
+.btn.btn-second {
+  font-size: 18px;
+  padding: 12px 50px;
+}
+
+/* Aumentar texto "Esqueceu a senha" */
+.password {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+/* Centralização específica para mobile */
+@media screen and (max-width: 1040px) {
+  .first-column,
+  .second-column {
+    justify-content: center;
+    padding: 40px 30px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .first-column .btn {
+    font-size: 16px;
+    padding: 10px 40px;
+  }
+}
+/* ============ CORREÇÕES DE CENTRALIZAÇÃO ============ */
+
+.first-content,
+.second-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.first-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.second-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* Centralização mobile */
+@media screen and (max-width: 1040px) {
+  .first-column,
+  .second-column {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+/* ============ CORREÇÃO PARA IPHONE SE - VERSÃO SIMPLIFICADA ============ */
+
+/* iPhone SE específico */
+@media only screen and (device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
+  .content::before {
+    height: 35% !important;
+    top: 0 !important;
+  }
+
+  .sign-in-js .content::before {
+    top: 65% !important;
+    height: 35% !important;
+    animation: none !important; /* Remove animação problemática */
+    transition: all 0.5s ease !important; /* Usa transição suave */
+  }
+
+  .sign-up-js .content::before {
+    top: 0 !important;
+    height: 35% !important;
+    animation: none !important;
+    transition: all 0.5s ease !important;
+  }
+
+  .second-column {
+    padding-bottom: 20px !important;
+  }
+
+  .btn {
+    margin-bottom: 10px !important;
+    position: relative;
+    z-index: 20;
+  }
+}
