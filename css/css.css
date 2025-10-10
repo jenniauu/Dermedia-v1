@@ -20,12 +20,12 @@
  */
 @font-face {
   font-family: "font1";
-  src: url(fonts/Roca\ Bold.ttf);
+  src: url(/Roca\ Bold.ttf);
 } /* Titulo */
 
 @font-face {
   font-family: "font2";
-  src: url(fonts/Montserrat-VariableFont_wght.ttf);
+  src: url(/Nunito-Regular.ttf);
 } /*descrição e subtitulos*/
 
 /* ============ RESET E ESTILOS GLOBAIS ============ */
