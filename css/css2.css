@@ -1,12 +1,12 @@
 
 @font-face {
   font-family: 'Nunito';
-  src: url(/css/fonts/Montserrat-VariableFont_wght.ttf);
+  src: url(/Nunito-Regular.ttf);
 }
 
 @font-face {
   font-family: 'Roca One';
-  src: url(/css/fonts/Roca\ Bold.ttf);
+  src: url(/Roca\ Bold.ttf);
 }
 
 * {
@@ -151,4 +151,5 @@ background-color: #e0c8b1;
 
 #userName{
     font-family: 'Roca One';
+
 }
