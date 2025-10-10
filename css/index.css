@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'FonteDescricao';
-  src: url('../Nunito-Regular.ttf') format('truetype');
+  src: url(Nunito-Regular.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'FonteTitulo';
-  src: url('../Roca\ Bold.ttf') format('truetype');
+  src: url(Roca\ Bold.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -389,4 +389,5 @@ nav {
   overflow-wrap: break-word;
   hyphens: auto;
 }
+
 
