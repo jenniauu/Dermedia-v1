@@ -18,13 +18,13 @@ body {
 /* === Font Definitions === */
 @font-face {
   font-family: 'Nunito';
-  src: url('/css/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  src: url('/Nunito-Regular.ttf') format('truetype');
   font-weight: 100 900;
 }
 
 @font-face {
   font-family: 'Roca One';
-  src: url('/css/fonts/Roca\ Bold.ttf') format('truetype');
+  src: url('/Roca\ Bold.ttf') format('truetype');
   font-weight: bold;
 }
 
@@ -803,4 +803,5 @@ h2 {
     right: 0.3125rem;
     top: 65%;
   }
+
 }
