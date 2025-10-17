@@ -146,11 +146,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const cancelBtn = document.createElement("button");
     cancelBtn.className = "cancel-btn";
-    cancelBtn.innerHTML = "<img src='deletar.png'>";
+    cancelBtn.innerHTML = "<img src='/js/deletar.png'>";
     cancelBtn.addEventListener("click", resetToUploadWidget);
     const approveBtn = document.createElement("button");
     approveBtn.className = "approve-btn";
-    approveBtn.innerHTML = "<img src='aceitar.png'>";
+    approveBtn.innerHTML = "<img src='/js/aceitar.png'>";
     approveBtn.addEventListener("click", function () {
       if (capturedImage) {
         analyzeImage(capturedImage);
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
     iconContainer.className = "camera-icon-container";
     const cameraBtn = document.createElement("button");
     cameraBtn.className = "camera-btn";
-    cameraBtn.innerHTML = "<img src='capturar.png'>";
+    cameraBtn.innerHTML = "<img src='/js/capturar.png'>";
     cameraBtn.addEventListener("click", captureImage);
     iconContainer.appendChild(cameraBtn);
     previewContainer.appendChild(iconContainer);
@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
     iconContainer.className = "camera-icon-container";
     const retakeBtn = document.createElement("button");
     retakeBtn.className = "retake-btn";
-    retakeBtn.innerHTML = "<img src='refazer.png'>";
+    retakeBtn.innerHTML = "<img src='/js/refazer.png'>";
     retakeBtn.addEventListener("click", function () {
       iconContainer.remove();
       initCamera();
