@@ -146,12 +146,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const cancelBtn = document.createElement("button");
     cancelBtn.className = "cancel-btn";
-    cancelBtn.innerHTML = "<img src='../imagens/deletar.png'>";
+    cancelBtn.innerHTML = "<img src='/imagens/deletar.png'>";
     cancelBtn.addEventListener("click", resetToUploadWidget);
 
     const approveBtn = document.createElement("button");
     approveBtn.className = "approve-btn";
-    approveBtn.innerHTML = "<img src='../imagens/aceitar.png'>";
+    approveBtn.innerHTML = "<img src='/imagens/aceitar.png'>";
     approveBtn.addEventListener("click", function () {
       if (capturedImage) {
         analyzeImage(capturedImage);
